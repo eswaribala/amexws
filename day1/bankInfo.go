@@ -6,6 +6,10 @@ import (
 	"strconv"
 )
 
+//custom type
+
+type customers []string
+
 func createBankInfo() {
 	//explicitly typed
 	//var bankName string="ABC Bank";
@@ -25,4 +29,17 @@ func createBankInfo() {
 	} else {
 		fmt.Printf("The associated error%s\n", err)
 	}
+}
+
+//array of customers
+func createCustomers() {
+	//custom type usage
+	customerData := customers{"Ajay", "Amit", "KK", "Sandeep"}
+	//looping through values
+
+	for index, customer := range customerData {
+		fmt.Printf("Position is %d and Name=%s ", index, customer)
+	}
+
+	//return customers;
 }
