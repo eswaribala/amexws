@@ -32,14 +32,33 @@ func createBankInfo() {
 }
 
 //array of customers
-func createCustomers() {
+func createCustomers() customers {
+
 	//custom type usage
 	customerData := customers{"Ajay", "Amit", "KK", "Sandeep"}
 	//looping through values
+	/*
+		for index, customer := range customerData {
+			fmt.Printf("Position is %d and Name=%s ", index, customer)
+		}
+	*/
+	return customerData
+}
 
-	for index, customer := range customerData {
-		fmt.Printf("Position is %d and Name=%s ", index, customer)
-	}
+//create scanner
 
-	//return customers;
+func readTransactionData() {
+	//read data from console
+	//scanner := bufio.NewScanner(os.Stdin)
+
+	var amount int
+	var sender, receiver string
+
+	fmt.Println("\nEnter the transaction Amount")
+	fmt.Scanln(&amount)
+	fmt.Println("\nEnter Sender and Receiver details")
+	fmt.Scanf("%s%s\n", &sender, &receiver)
+
+	fmt.Printf("The transaction done by %s to %s and the amount is %d", sender, receiver, amount)
+
 }
