@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"reflect"
 	"strconv"
@@ -60,5 +61,17 @@ func readTransactionData() {
 	fmt.Scanf("%s%s\n", &sender, &receiver)
 
 	fmt.Printf("The transaction done by %s to %s and the amount is %d", sender, receiver, amount)
+
+}
+
+//variadic function
+
+func getDocuments(customerId int, docs ...string) (string, error) {
+	var message string = "Not Valid"
+	if len(docs) == 0 {
+		return "", errors.New("Docs missing")
+	}
+	message = strconv.Itoa(customerId) + "submitted" + strconv.Itoa(len(docs))
+	return message, nil
 
 }

@@ -20,4 +20,26 @@ func main() {
 		fmt.Println(result)
 	}
 
+	result, err = getDocuments(1246546, "Passport")
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(result)
+
+	}
+	result, err = getDocuments(1246546, "Passport", "Driving license")
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(result)
+
+	}
+
+	result, err = getDocuments(1246546)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(result)
+
+	}
 }
