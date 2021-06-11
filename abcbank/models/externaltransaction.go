@@ -1,8 +1,8 @@
 package models
 
 type ExternalTransaction struct {
-	branchName     string
-	branchAddress  string
-	branchPostCode int64
-	branchCode     string
+	BranchName     string
+	BranchAddress  string
+	BranchPostCode int64
+	BranchCode     string
 }
