@@ -1,10 +1,37 @@
 package dao
 
 import (
+	"fmt"
 	"github.com/amexws/banking/models"
 	"math/rand"
 	"strconv"
 )
+
+func CreateCustomers() {
+
+	customerList := map[int64]struct {
+		name  string
+		email string
+	}{
+		rand.Int63n(100000): {
+			"Parameswari",
+			"param@gmail.com",
+		},
+		rand.Int63n(100000): {
+			"Bala",
+			"bala@gmail.com",
+		},
+		rand.Int63n(100000): {
+			"Vignesh",
+			"viki@gmail.com",
+		},
+	}
+
+	for key, value := range customerList {
+		fmt.Printf("\nThe Customer Id is %d and value is %+v", key, value)
+	}
+
+}
 
 func FindAllCustomers() models.Customer {
 

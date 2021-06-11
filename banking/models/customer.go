@@ -18,6 +18,12 @@ type Customer struct {
 	Password       string
 }
 
+type PlatinumCustomer struct {
+	Customer
+	Limit int64
+	Offer int32
+}
+
 /**
 
 Method has receiver type
@@ -37,4 +43,14 @@ func (customer Customer) UpdateContactNo(contact_no int64) Customer {
 	customer.Contact_Number = contact_no
 	fmt.Printf("\nInternal Customer Details %+v", customer)
 	return customer
+}
+
+//method overriding
+
+func (customer *Customer) Withdraw() {
+	fmt.Printf("\nCustomer Data %+v", customer)
+}
+
+func (customer *PlatinumCustomer) Withdraw() {
+	fmt.Printf("\nCustomer Data %+v", customer)
 }
