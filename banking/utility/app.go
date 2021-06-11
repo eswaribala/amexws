@@ -9,7 +9,8 @@ import (
 
 func main() {
 
-	dao.CreateCustomers()
+	//dao.CreateCustomers()
+	dao.CreateCustomerList()
 
 	/*
 		fmt.Println(dao.FindAllCustomers())

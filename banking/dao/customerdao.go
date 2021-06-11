@@ -7,6 +7,7 @@ import (
 	"strconv"
 )
 
+/*
 type Address struct {
 	door_no string
 	street  string
@@ -51,6 +52,27 @@ func CreateCustomers() {
 				"New Delhi",
 			},
 		},
+	}
+
+	for key, value := range customerList {
+		fmt.Printf("\nThe Customer Id is %d and value is %+v", key, value)
+	}
+
+}
+*/
+
+func CreateCustomerList() {
+
+	customerList := make(map[int]models.Customer)
+	//create customers
+	fmt.Println("Enter no of customers to be created")
+	var count int
+	fmt.Scanln(&count)
+	for i := 0; i < count; i++ {
+
+		customerList[i] = models.Customer{rand.Int63n(1000000),
+			"customer" + (strconv.Itoa(rand.Int())), models.Address{"428998", "x", "Chennai", "TN"},
+			9952056789, "sample@gmail.com", "test@123"}
 	}
 
 	for key, value := range customerList {
