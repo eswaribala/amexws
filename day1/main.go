@@ -2,11 +2,13 @@ package main
 
 import (
 	"fmt"
+	"github.com/amexws/day2/utility"
 	"os"
 )
 
 //main frame is created stack
 func main() {
+
 	createBankInfo()
 	for index, customer := range createCustomers() {
 		fmt.Printf("Position is %d and Name=%s ", index, customer)
@@ -42,4 +44,10 @@ func main() {
 		fmt.Println(result)
 
 	}
+
+	//invoke function from day2 utility
+	customerList := customers{"Param", "Bala", "Vignesh", "Sanjay"}
+	//byte slicing
+	fmt.Println([]byte(utility.ToString(customerList)))
+
 }
