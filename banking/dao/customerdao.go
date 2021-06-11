@@ -6,14 +6,14 @@ import (
 	"strconv"
 )
 
-func findAllCustomers() models.Customer {
+func FindAllCustomers() models.Customer {
 
 	//create customer instances
 	var customers models.Customer
 
 	//for i:=0;i<len(customers);i++ {
-	customers = models.Customer{strconv.Itoa(rand.Int()),
-		"customer" + (strconv.Itoa(i)), models.Address{"428998", "x", "Chennai", "TN"},
+	customers = models.Customer{rand.Int63n(1000000),
+		"customer" + (strconv.Itoa(rand.Int())), models.Address{"428998", "x", "Chennai", "TN"},
 		9952056789, "sample@gmail.com", "test@123"}
 	//}
 

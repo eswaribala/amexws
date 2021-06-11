@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Println(dao.findAllCustomers())
+	fmt.Println(dao.FindAllCustomers())
 }

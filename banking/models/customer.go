@@ -1,17 +1,17 @@
 package models
 
 type Address struct {
-	door_no     string
-	street_name string
-	city        string
-	state       string
+	Door_No     string
+	Street_Name string
+	City        string
+	State       string
 }
 
 type Customer struct {
-	account_number int64
-	name           string
-	address        Address
-	contact_number int64
-	email          string
-	password       string
+	Account_Number int64
+	Name           string
+	AddressRef     Address
+	Contact_Number int64
+	Email          string
+	Password       string
 }
