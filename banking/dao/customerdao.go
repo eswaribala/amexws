@@ -7,23 +7,49 @@ import (
 	"strconv"
 )
 
+type Address struct {
+	door_no string
+	street  string
+	city    string
+	state   string
+}
+
 func CreateCustomers() {
 
 	customerList := map[int64]struct {
-		name  string
-		email string
+		name    string
+		email   string
+		address Address
 	}{
 		rand.Int63n(100000): {
 			"Parameswari",
 			"param@gmail.com",
+			Address{
+				"123",
+				"Gandhi st",
+				"Chennai",
+				"TamilNadu",
+			},
 		},
 		rand.Int63n(100000): {
 			"Bala",
 			"bala@gmail.com",
+			Address{
+				"124",
+				"Commercial st",
+				"Bangalore",
+				"KN",
+			},
 		},
 		rand.Int63n(100000): {
 			"Vignesh",
 			"viki@gmail.com",
+			Address{
+				"125",
+				"Vayu Marg",
+				"New Delhi",
+				"New Delhi",
+			},
 		},
 	}
 
