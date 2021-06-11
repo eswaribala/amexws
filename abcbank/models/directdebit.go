@@ -6,5 +6,5 @@ type Date struct {
 	Year  int
 }
 type DirectDebit struct {
-	Payment_Date Date
+	Payment_Date *Date
 }
