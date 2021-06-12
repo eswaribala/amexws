@@ -20,6 +20,7 @@ func (transaction *Transaction) DepositMoney(Amount int64) {
 
 	}
 	fmt.Println("\nRecord Inserted", result)
+	stores.GetAllTransactions()
 
 }
 func (directDebit *DirectDebit) DepositMoney(Amount int64) {

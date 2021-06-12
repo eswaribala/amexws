@@ -6,6 +6,7 @@ import (
 )
 
 func CreateTransaction() models.Transaction {
+
 	transaction := models.Transaction{
 		rand.Int63n(100000),
 		39596,
