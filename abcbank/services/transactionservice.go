@@ -7,7 +7,7 @@ import (
 
 func CreateTransaction() models.Transaction {
 	transaction := models.Transaction{
-		rand.Int63n(10000000000),
+		rand.Int63n(100000),
 		39596,
 		"10.30",
 		"Parameswari",

@@ -16,3 +16,14 @@ func ConnectionHelper() *sql.DB {
 	}
 	return db
 }
+
+func CreateTransaction(transactionId int64, amount int64, timestamp string, sender string, receiver string) (int64, error) {
+
+	db := ConnectionHelper()
+	queryString := "Insert into transaction (TransactionId,Amount,Time_Stamp,Sender,Receiver) values(?,?,?,?,?)"
+	result, err := db.Exec(queryString, transactionId, amount, timestamp, sender, receiver)
+	if err != nil {
+		log.Fatal("Error occurred while saving...", err)
+	}
+	return result.RowsAffected()
+}

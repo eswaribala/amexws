@@ -3,6 +3,7 @@ package models
 import (
 	"fmt"
 	"github.com/amexws/abcbank/stores"
+	"log"
 )
 
 type ITransaction interface {
@@ -13,7 +14,13 @@ type ITransaction interface {
 //methods
 func (transaction *Transaction) DepositMoney(Amount int64) {
 	fmt.Printf("\nTransaction %+v amount deposited %d", transaction, Amount)
-	stores.ConnectionHelper()
+	result, err := stores.CreateTransaction(transaction.TransactionId, transaction.Amount, transaction.Time_Stamp, transaction.Sender, transaction.Receiver)
+	if err != nil {
+		log.Fatal("User Not inserted....")
+
+	}
+	fmt.Println("\nRecord Inserted", result)
+
 }
 func (directDebit *DirectDebit) DepositMoney(Amount int64) {
 	fmt.Printf("\nDirect Debit %+v amount deposited %d", directDebit, Amount)
