@@ -2,6 +2,7 @@ package models
 
 import (
 	"fmt"
+	"github.com/amexws/abcbank/storeorm"
 	"github.com/amexws/abcbank/stores"
 	"log"
 )
@@ -19,6 +20,9 @@ func (transaction *Transaction) DepositMoney(Amount int64) {
 		log.Fatal("User Not inserted....")
 
 	}
+	fmt.Println("\nRecord Inserted", result)
+
+	storeorm.SaveTransaction(transaction.TransactionId, transaction.Amount, transaction.Time_Stamp, transaction.Sender, transaction.Receiver)
 	fmt.Println("\nRecord Inserted", result)
 	stores.GetAllTransactions()
 
