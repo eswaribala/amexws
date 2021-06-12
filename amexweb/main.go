@@ -1,7 +1,8 @@
 package main
 
 import (
-	"fmt"
+	"github.com/amexws/amexweb/models"
+	"html/template"
 	"log"
 	"net/http"
 )
@@ -12,14 +13,17 @@ const (
 )
 
 func loadHome(w http.ResponseWriter, r *http.Request) {
-	/*
-	        result,_:=template.ParseFiles("/templates/index.html")
-	        err:=result.Execute(w,nil);
-	        if err!=nil{
-	        	log.Fatal("Home Page cannot be loaded",err);
-	   	 }
-	*/
-	fmt.Fprintf(w, "Launching Home Page!")
+
+	user := models.User{Id: 45832, Name: "Parameswari"}
+
+	parsedTemplate, _ := template.ParseFiles("templates/first-template.html")
+	err := parsedTemplate.Execute(w, user)
+	if err != nil {
+		log.Printf("Error occurred while executing the templateor writing its output : ", err)
+		return
+	}
+
+	//fmt.Fprintf(w, "Launching Home Page!")
 }
 func main() {
 
