@@ -2,6 +2,7 @@ package models
 
 import (
 	"fmt"
+	"github.com/amexws/abcbank/stores"
 )
 
 type ITransaction interface {
@@ -12,6 +13,7 @@ type ITransaction interface {
 //methods
 func (transaction *Transaction) DepositMoney(Amount int64) {
 	fmt.Printf("\nTransaction %+v amount deposited %d", transaction, Amount)
+	stores.ConnectionHelper()
 }
 func (directDebit *DirectDebit) DepositMoney(Amount int64) {
 	fmt.Printf("\nDirect Debit %+v amount deposited %d", directDebit, Amount)
