@@ -3,7 +3,11 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"sync"
 )
+
+//create wait group
+var wg sync.WaitGroup
 
 func main() {
 
@@ -14,10 +18,13 @@ func main() {
 		"http://rpsconsulting.in",
 	}
 
+	wg.Add(len(links))
 	for _, link := range links {
-		CheckLinks(link)
+		//add go routine
+		go CheckLinks(link)
 	}
-
+	wg.Wait()
+	fmt.Println("Main Terminated....")
 }
 
 func CheckLinks(link string) {
